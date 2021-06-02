@@ -1,0 +1,13 @@
+body {
+background-position: center;
+background-size: cover;
+}
+
+a {
+font-size: 20px !important;
+width: 400px !important;
+border-radius: 30px !important;
+background-color: white;
+color: black;
+box-shadow: 6px 6px 6px  grey;
+}
