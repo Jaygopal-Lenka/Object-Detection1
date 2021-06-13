@@ -1,8 +1,9 @@
 img = "";
+objects = [];
 status = "";
 
 function preload(){
-  img = loadImage('waterbottle2.jpg');
+  img = loadImage('plastic water bottle.jpg');
 }
 
 
@@ -31,10 +32,17 @@ function gotResult(error, results) {
 
 
 function draw() {
-    image(img , 0 , 0 , 640 ,380);
-    fill("FF0000");
-    text("Bottle", 210, 40);
+  if (status != "") {
+    image(img, 0, 0, 640, 420);
+  for (var i = 0; i < objects.length; i++) {
+    document.getElementById("status").innerHTML = "Status : Objects Detected";
+
+    fill("#FF0000");
+    percent = floor(objects[i].confidence * 100);
+    text(objects[i].label + " " + percent + "%", objects[i].x + 5, objects[i].y + 15);
     noFill();
     stroke("#FF0000");
-    rect(200 , 20 , 180 , 310);
+    rect(objects[i].x, objects[i].y, objects[i].width -10 , objects[i].height -15);
+  }
+}
 }
